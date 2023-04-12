@@ -1,0 +1,553 @@
+{
+  "local": {
+    "databricks_local_cfg": "%USERPROFILES%\\.databrickscfg",
+    "token": "dapiaa6c9d30b2571e8f58bce0d22a0d454c"
+  },
+
+  "dev": {
+    "env": "dev",
+
+    "data_stitching_secret_scope": "data-stitching-secret-scope",
+
+    "dsi_jdbcHostname": "SQL-DSSI-PE-DM.directs.com", 
+    "dsi_jdbcDatabase": "BI", 
+    "dsi_jdbcPort": "1433", 
+    "dsi_user_key": "dssi-sqldb-user",
+    "dsi_pswd_key": "dssi-sqldb-pswd",
+
+    "dsi_rds_driver": "com.amazon.redshift.jdbc42.Driver",
+    "dsi_rds_url": "jdbc:redshift://dssmart-reporting-mart.cfjeeb1zlhf6.us-east-1.redshift.amazonaws.com:5439/ds_smart_prod",
+    "dsi_rds_user_key": "dssi-rds-user",
+    "dsi_rds_pswd_key": "dssi-rds-pswd",
+
+    "dse_jdbcHostname": "SQL-DSHE-PI-DW.directs.com", 
+    "dse_jdbcDatabase": "master", 
+    "dse_jdbcPort": "1433", 
+    "dse_user_key": "dshe-sqldb-user",
+    "dse_pswd_key": "dshe-sqldb-pswd",
+
+    "logs": {
+      "table": "jobs.logs",
+      "path": "dbfs:/mnt/de_job_framework/de_framework_logs",
+      "format": "delta"
+    },
+
+    "dssi_dim_date": {
+      "table": "datastitching.dim_date",
+      "path": "/dbfs:/mnt/ds_presentation/data_stitching/dim_date",
+      "format": "delta",
+      "pk": "Date"
+    },
+
+    "dssi_dim_contact_ds": {
+      "table": "datastitching.dim_contact_ds",
+      "path": "/dbfs:/mnt/ds_presentation/dim_contact_ds",
+      "format": "delta",
+      "pk": "DSContactID"
+    },
+
+    "dssi_dim_contact_dssi": {
+      "table": "datastitching.dim_contact_dssi",
+      "path": "/dbfs:/mnt/ds_presentation/data_stitching/dim_contact_dssi",
+      "format": "delta",
+      "pk": "CustContNum"
+    },
+
+    "dssi_dim_location_ds": {
+      "table": "datastitching.dim_location_ds",
+      "path": "/dbfs:/mnt/ds_presentation/dim_location_ds",
+      "format": "delta",
+      "pk": "DSLocationID"
+    },
+
+    "dssi_dim_location_dssi": {
+      "table": "datastitching.dim_location_dssi",
+      "path": "/dbfs:/mnt/ds_presentation/data_stitching/dim_location_dssi",
+      "format": "delta",
+      "pk": "FacilityKey"
+    },
+
+    "dssi_fact_order_dssi": {
+      "table": "datastitching.fact_order_dssi",
+      "path": "/dbfs:/mnt/ds_presentation/fact_order_dssi",
+      "format": "delta",
+      "pk": "LinePoNbr;LineNbr"
+    },
+
+    "dssi_fact_activity_dssmart": {
+      "table": "datastitching.fact_activity_dssmart",
+      "path": "/dbfs:/mnt/ds_presentation/fact_activity_dssmart",
+      "format": "delta",
+      "pk": "Location;Date"
+    },
+
+    "dshe_dim_contact_dse": {
+      "table": "datastitching.dim_contact_dse",
+      "path": "/dbfs:/mnt/ds_presentation/dim_contact_dse",
+      "format": "delta",
+      "pk": "ContactKey" 
+    },
+
+    "dshe_dim_location_dse": {
+      "table":"datastitching.dim_location_dse",
+      "path": "/dbfs:/mnt/ds_presentation/data_stitching/dim_location_dse",
+      "format": "delta",
+      "pk": "Location"
+    },
+
+    "dshe_dim_order_dse_channel": {
+      "table": "datastitching.dim_order_dse_channel", 
+      "path": "/dbfs:/mnt/ds_presentation/data_stitching/dim_order_dse_channel",
+      "format": "delta",
+      "pk": "OrderChannelCd"
+    },
+
+    "dshe_dim_order_dse_lob": {
+      "table": "datastitching.dim_order_dse_lob",
+      "path": "/dbfs:/mnt/ds_presentation/data_stitching/dim_order_dse_lob",
+      "format": "delta",
+      "pk": "LineOfBusinessCurrentKey"
+    },
+
+    "dshe_fact_login_tels": {
+      "table": "datastitching.fact_login_tels",
+      "path": "/dbfs:/mnt/ds_presentation/data_stitching/fact_login_tels",
+      "format": "delta",
+      "pk": "Location;ContactKey;Date"
+    },
+
+    "dshe_fact_order_dse": {
+      "table": "datastitching.fact_order_dse",
+      "path": "/dbfs:/mnt/ds_presentation/data_stitching/fact_order_dse",
+      "format": "delta",
+      "pk": "LineId"
+    },
+    
+    "dshe_dim_product_dse": {
+      "table": "datastitching.dim_product_dse",
+      "path": "/dbfs:/mnt/ds_presentation/data_stitching/dim_product_dse",
+      "format": "delta",
+      "pk": "ProductCurrentKey"
+    }
+  },
+
+  "sandbox": {
+    "env": "sandbox",
+    "vault_dse_path": "dse/dse_sql_db",
+    "vault_dse_user_key": "username",
+    "vault_dse_pswd_key": "password",
+
+    "vault_dssi_path": "dssi/dssi_sql_db",
+    "vault_dssi_user_key": "username",
+    "vault_dssi_pswd_key": "password",
+
+    "vault_dssi_rds_path": "dssi/dssi_rds",
+    "vault_rds_user_key": "username",
+    "vault_rds_pswd_key": "password",
+
+    "data_stitching_secret_scope": "data-stitching-secret-scope",
+
+    "dsi_jdbcHostname": "SQL-DSSI-DE-DM.directs.com",
+    "dsi_server_name": "SQL-DSSI-DE-DM",
+    "dsi_jdbcDatabase": "BI", 
+    "dsi_jdbcPort": "1433", 
+    "dsi_user_key": "dssi-sqldb-user",
+    "dsi_pswd_key": "dssi-sqldb-pswd",
+
+    "dsi_rds_driver": "com.amazon.redshift.jdbc42.Driver",
+    "dsi_rds_url": "jdbc:redshift://dssmart-reporting-mart.cfdpqlmdvhyh.us-east-1.redshift.amazonaws.com:5439/ds_smart_dev",
+    "dsi_rds_user_key": "dssi-rds-user",
+    "dsi_rds_pswd_key": "dssi-rds-pswd",
+
+    "dse_jdbcHostname": "SQL-DSHE-DI-DW.directs.com",
+    "dse_server_name": "SQL-DSHE-DI-DW",
+    "dse_jdbcDatabase": "master", 
+    "dse_jdbcPort": "1433", 
+    "dse_user_key": "dshe-sqldb-user",
+    "dse_pswd_key": "dshe-sqldb-pswd",
+
+    "logs": {
+      "table": "app_DSI_DataStitching.default.logs",
+      "path": "s3://ds-data-databricks-sandbox/catalog/unity/data_platform/tables/app_DSI_DataStitching/default/logs",
+      "format": "delta"
+    },
+    
+    "dssi_dim_date": {
+      "table": "app_DSI_DataStitching.default.dim_date",
+      "path": "s3://ds-data-databricks-sandbox/catalog/unity/data_platform/tables/app_DSI_DataStitching/default/dim_date",
+      "format": "delta",
+      "pk": "Date"
+    },
+
+    "dssi_dim_contact_ds": {
+      "table": "app_DSI_DataStitching.default.dim_contact_ds",
+      "path": "s3://ds-data-databricks-sandbox/catalog/unity/data_platform/tables/app_DSI_DataStitching/default/dim_contact_ds",
+      "format": "delta",
+      "pk": "DSContactID"
+    },
+
+    "dssi_dim_contact_dssi": {
+      "table": "app_DSI_DataStitching.default.dim_contact_dssi",
+      "path": "s3://ds-data-databricks-sandbox/catalog/unity/data_platform/tables/app_DSI_DataStitching/default/dim_contact_dssi",
+      "format": "delta",
+      "pk": "CustContNum"
+    },
+
+    "dssi_dim_location_ds": {
+      "table": "app_DSI_DataStitching.default.dim_location_ds",
+      "path": "s3://ds-data-databricks-sandbox/catalog/unity/data_platform/tables/app_DSI_DataStitching/default/dim_location_ds",
+      "format": "delta",
+      "pk": "DSLocationID"
+    },
+
+    "dssi_dim_location_dssi": {
+      "table": "app_DSI_DataStitching.default.dim_location_dssi",
+      "path": "s3://ds-data-databricks-sandbox/catalog/unity/data_platform/tables/app_DSI_DataStitching/default/dim_location_dssi",
+      "format": "delta",
+      "pk": "FacilityKey"
+    },
+
+    "dssi_fact_order_dssi": {
+      "table": "app_DSI_DataStitching.default.fact_order_dssi",
+      "path": "s3://ds-data-databricks-sandbox/catalog/unity/data_platform/tables/app_DSI_DataStitching/default/fact_order_dssi",
+      "format": "delta",
+      "pk": "LinePoNbr;LineNbr"
+    },
+
+    "dssi_fact_activity_dssmart": {
+      "table": "app_DSI_DataStitching.default.fact_activity_dssmart",
+      "path": "s3://ds-data-databricks-sandbox/catalog/unity/data_platform/tables/app_DSI_DataStitching/default/fact_activity_dssmart",
+      "format": "delta",
+      "pk": "Location;Date"
+    },
+
+    "dshe_dim_contact_dse": {
+      "table": "app_DSI_DataStitching.default.dim_contact_dse",
+      "path": "s3://ds-data-databricks-sandbox/catalog/unity/data_platform/tables/app_DSI_DataStitching/default/dim_contact_dse",
+      "format": "delta",
+      "pk": "ContactKey" 
+    },
+
+    "dshe_dim_location_dse": {
+      "table":"app_DSI_DataStitching.default.dim_location_dse",
+      "path": "s3://ds-data-databricks-sandbox/catalog/unity/data_platform/tables/app_DSI_DataStitching/default/dim_location_dse",
+      "format": "delta",
+      "pk": "Location"
+    },
+
+    "dshe_dim_order_dse_channel": {
+      "table": "app_DSI_DataStitching.default.dim_order_dse_channel",
+      "path": "s3://ds-data-databricks-sandbox/catalog/unity/data_platform/tables/app_DSI_DataStitching/default/dim_order_dse_channel",
+      "format": "delta",
+      "pk": "OrderChannelCd"
+    },
+
+    "dshe_dim_order_dse_lob": {
+      "table": "app_DSI_DataStitching.default.dim_order_dse_lob",
+      "path": "s3://ds-data-databricks-sandbox/catalog/unity/data_platform/tables/app_DSI_DataStitching/default/dim_order_dse_lob",
+      "format": "delta",
+      "pk": "LineOfBusinessCurrentKey"
+    },
+
+    "dshe_fact_login_tels": {
+      "table": "app_DSI_DataStitching.default.fact_login_tels",
+      "path": "s3://ds-data-databricks-sandbox/catalog/unity/data_platform/tables/app_DSI_DataStitching/default/fact_login_tels",
+      "format": "delta",
+      "pk": "Location;ContactKey;Date"
+    },
+
+    "dshe_fact_order_dse": {
+      "table": "app_DSI_DataStitching.default.fact_order_dse",
+      "path": "s3://ds-data-databricks-sandbox/catalog/unity/data_platform/tables/app_DSI_DataStitching/default/fact_order_dse",
+      "format": "delta",
+      "pk": "LineId"
+    },
+
+    "dshe_dim_product_dse": {
+      "table": "app_DSI_DataStitching.default.dim_product_dse",
+      "path": "s3://ds-data-databricks-sandbox/catalog/unity/data_platform/tables/app_DSI_DataStitching/default/dim_product_dse",
+      "format": "delta",
+      "pk": "ProductCurrentKey"
+    }
+  },
+
+  "testing": {
+    "env": "testing",
+    "vault_dse_path": "dse/dse_sql_db",
+    "vault_dse_user_key": "username",
+    "vault_dse_pswd_key": "password",
+
+    "vault_dssi_path": "dssi/dssi_sql_db",
+    "vault_dssi_user_key": "username",
+    "vault_dssi_pswd_key": "password",
+
+    "vault_dssi_rds_path": "dssi/dssi_rds",
+    "vault_rds_user_key": "username",
+    "vault_rds_pswd_key": "password",
+
+    "data_stitching_secret_scope": "data-stitching-secret-scope",
+
+    "dsi_jdbcHostname": "SQL-DSSI-QE-DM.directs.com",
+    "dsi_server_name": "SQL-DSSI-QE-DM",
+    "dsi_jdbcDatabase": "BI",
+    "dsi_jdbcPort": "1433",
+    "dsi_user_key": "dssi-sqldb-user",
+    "dsi_pswd_key": "dssi-sqldb-pswd",
+
+    "dsi_rds_driver": "com.amazon.redshift.jdbc42.Driver",
+    "dsi_rds_url": "jdbc:redshift://dssmart-reporting-mart.c3sjvkcdznzg.us-east-1.redshift.amazonaws.com:5439/ds_smart_test",
+    "dsi_rds_user_key": "dssi-rds-user",
+    "dsi_rds_pswd_key": "dssi-rds-pswd",
+
+    "dse_jdbcHostname": "SQL-DSHE-QI-DW.directs.com",
+    "dse_server_name": "SQL-DSHE-QI-DW",
+    "dse_jdbcDatabase": "master",
+    "dse_jdbcPort": "1433",
+    "dse_user_key": "dshe-sqldb-user",
+    "dse_pswd_key": "dshe-sqldb-pswd",
+
+    "logs": {
+      "table": "app_DSI_DataStitching.default.logs",
+      "path": "s3://ds-data-databricks-testing/catalog/unity/data_platform/tables/app_DSI_DataStitching/default/logs",
+      "format": "delta"
+    },
+
+    "dssi_dim_date": {
+      "table": "app_DSI_DataStitching.default.dim_date",
+      "path": "s3://ds-data-databricks-testing/catalog/unity/data_platform/tables/app_DSI_DataStitching/default/dim_date",
+      "format": "delta",
+      "pk": "Date"
+    },
+
+    "dssi_dim_contact_ds": {
+      "table": "app_DSI_DataStitching.default.dim_contact_ds",
+      "path": "s3://ds-data-databricks-testing/catalog/unity/data_platform/tables/app_DSI_DataStitching/default/dim_contact_ds",
+      "format": "delta",
+      "pk": "DSContactID"
+    },
+
+    "dssi_dim_contact_dssi": {
+      "table": "app_DSI_DataStitching.default.dim_contact_dssi",
+      "path": "s3://ds-data-databricks-testing/catalog/unity/data_platform/tables/app_DSI_DataStitching/default/dim_contact_dssi",
+      "format": "delta",
+      "pk": "CustContNum"
+    },
+
+    "dssi_dim_location_ds": {
+      "table": "app_DSI_DataStitching.default.dim_location_ds",
+      "path": "s3://ds-data-databricks-testing/catalog/unity/data_platform/tables/app_DSI_DataStitching/default/dim_location_ds",
+      "format": "delta",
+      "pk": "DSLocationID"
+    },
+
+    "dssi_dim_location_dssi": {
+      "table": "app_DSI_DataStitching.default.dim_location_dssi",
+      "path": "s3://ds-data-databricks-testing/catalog/unity/data_platform/tables/app_DSI_DataStitching/default/dim_location_dssi",
+      "format": "delta",
+      "pk": "FacilityKey"
+    },
+
+    "dssi_fact_order_dssi": {
+      "table": "app_DSI_DataStitching.default.fact_order_dssi",
+      "path": "s3://ds-data-databricks-testing/catalog/unity/data_platform/tables/app_DSI_DataStitching/default/fact_order_dssi",
+      "format": "delta",
+      "pk": "LinePoNbr;LineNbr"
+    },
+
+    "dssi_fact_activity_dssmart": {
+      "table": "app_DSI_DataStitching.default.fact_activity_dssmart",
+      "path": "s3://ds-data-databricks-testing/catalog/unity/data_platform/tables/app_DSI_DataStitching/default/fact_activity_dssmart",
+      "format": "delta",
+      "pk": "Location;Date"
+    },
+
+    "dshe_dim_contact_dse": {
+      "table": "app_DSI_DataStitching.default.dim_contact_dse",
+      "path": "s3://ds-data-databricks-testing/catalog/unity/data_platform/tables/app_DSI_DataStitching/default/dim_contact_dse",
+      "format": "delta",
+      "pk": "ContactKey"
+    },
+
+    "dshe_dim_location_dse": {
+      "table":"app_DSI_DataStitching.default.dim_location_dse",
+      "path": "s3://ds-data-databricks-testing/catalog/unity/data_platform/tables/app_DSI_DataStitching/default/dim_location_dse",
+      "format": "delta",
+      "pk": "Location"
+    },
+
+    "dshe_dim_order_dse_channel": {
+      "table": "app_DSI_DataStitching.default.dim_order_dse_channel",
+      "path": "s3://ds-data-databricks-testing/catalog/unity/data_platform/tables/app_DSI_DataStitching/default/dim_order_dse_channel",
+      "format": "delta",
+      "pk": "OrderChannelCd"
+    },
+
+    "dshe_dim_order_dse_lob": {
+      "table": "app_DSI_DataStitching.default.dim_order_dse_lob",
+      "path": "s3://ds-data-databricks-testing/catalog/unity/data_platform/tables/app_DSI_DataStitching/default/dim_order_dse_lob",
+      "format": "delta",
+      "pk": "LineOfBusinessCurrentKey"
+    },
+
+    "dshe_fact_login_tels": {
+      "table": "app_DSI_DataStitching.default.fact_login_tels",
+      "path": "s3://ds-data-databricks-testing/catalog/unity/data_platform/tables/app_DSI_DataStitching/default/fact_login_tels",
+      "format": "delta",
+      "pk": "Location;ContactKey;Date"
+    },
+
+    "dshe_fact_order_dse": {
+      "table": "app_DSI_DataStitching.default.fact_order_dse",
+      "path": "s3://ds-data-databricks-testing/catalog/unity/data_platform/tables/app_DSI_DataStitching/default/fact_order_dsi",
+      "format": "delta",
+      "pk": "LineId"
+    },
+
+    "dshe_dim_product_dse": {
+      "table": "app_DSI_DataStitching.default.dim_product_dse",
+      "path": "s3://ds-data-databricks-testing/catalog/unity/data_platform/tables/app_DSI_DataStitching/default/dim_product_dse",
+      "format": "delta",
+      "pk": "ProductCurrentKey"
+    }
+  },
+
+  "production": {
+    "env": "production",
+    "vault_dse_path": "dse/dse_sql_db",
+    "vault_dse_user_key": "username",
+    "vault_dse_pswd_key": "password",
+
+    "vault_dssi_path": "dssi/dssi_sql_db",
+    "vault_dssi_user_key": "username",
+    "vault_dssi_pswd_key": "password",
+
+    "vault_dssi_rds_path": "dssi/dssi_rds",
+    "vault_rds_user_key": "username",
+    "vault_rds_pswd_key": "password",
+
+    "data_stitching_secret_scope": "data-stitching-secret-scope",
+
+    "dsi_jdbcHostname": "SQL-DSSI-PE-DM.directs.com",
+    "dsi_server_name": "SQL-DSSI-PE-DM",
+    "dsi_jdbcDatabase": "BI",
+    "dsi_jdbcPort": "1433",
+    "dsi_user_key": "dssi-sqldb-user",
+    "dsi_pswd_key": "dssi-sqldb-pswd",
+
+    "dsi_rds_driver": "com.amazon.redshift.jdbc42.Driver",
+    "dsi_rds_url": "jdbc:redshift://dssmart-reporting-mart.cfjeeb1zlhf6.us-east-1.redshift.amazonaws.com:5439/ds_smart_prod",
+    "dsi_rds_user_key": "dssi-rds-user",
+    "dsi_rds_pswd_key": "dssi-rds-pswd",
+
+    "dse_jdbcHostname": "SQL-DSHE-PI-DW.directs.com",
+    "dse_server_name": "SQL-DSHE-PI-DW",
+    "dse_jdbcDatabase": "master",
+    "dse_jdbcPort": "1433",
+    "dse_user_key": "dshe-sqldb-user",
+    "dse_pswd_key": "dshe-sqldb-pswd",
+
+    "logs": {
+      "table": "app_DSI_DataStitching.default.logs",
+      "path": "s3://ds-data-databricks-production/catalog/unity/data_platform/tables/app_DSI_DataStitching/default/logs",
+      "format": "delta"
+    },
+
+    "dssi_dim_date": {
+      "table": "app_DSI_DataStitching.default.dim_date",
+      "path": "s3://ds-data-databricks-production/catalog/unity/data_platform/tables/app_DSI_DataStitching/default/dim_date",
+      "format": "delta",
+      "pk": "Date"
+    },
+
+    "dssi_dim_contact_ds": {
+      "table": "app_DSI_DataStitching.default.dim_contact_ds",
+      "path": "s3://ds-data-databricks-production/catalog/unity/data_platform/tables/app_DSI_DataStitching/default/dim_contact_ds",
+      "format": "delta",
+      "pk": "DSContactID"
+    },
+
+    "dssi_dim_contact_dssi": {
+      "table": "app_DSI_DataStitching.default.dim_contact_dssi",
+      "path": "s3://ds-data-databricks-production/catalog/unity/data_platform/tables/app_DSI_DataStitching/default/dim_contact_dssi",
+      "format": "delta",
+      "pk": "CustContNum"
+    },
+
+    "dssi_dim_location_ds": {
+      "table": "app_DSI_DataStitching.default.dim_location_ds",
+      "path": "s3://ds-data-databricks-production/catalog/unity/data_platform/tables/app_DSI_DataStitching/default/dim_location_ds",
+      "format": "delta",
+      "pk": "DSLocationID"
+    },
+
+    "dssi_dim_location_dssi": {
+      "table": "app_DSI_DataStitching.default.dim_location_dssi",
+      "path": "s3://ds-data-databricks-production/catalog/unity/data_platform/tables/app_DSI_DataStitching/default/dim_location_dssi",
+      "format": "delta",
+      "pk": "FacilityKey"
+    },
+
+    "dssi_fact_order_dssi": {
+      "table": "app_DSI_DataStitching.default.fact_order_dssi",
+      "path": "s3://ds-data-databricks-production/catalog/unity/data_platform/tables/app_DSI_DataStitching/default/fact_order_dssi",
+      "format": "delta",
+      "pk": "LinePoNbr;LineNbr"
+    },
+
+    "dssi_fact_activity_dssmart": {
+      "table": "app_DSI_DataStitching.default.fact_activity_dssmart",
+      "path": "s3://ds-data-databricks-production/catalog/unity/data_platform/tables/app_DSI_DataStitching/default/fact_activity_dssmart",
+      "format": "delta",
+      "pk": "Location;Date"
+    },
+
+    "dshe_dim_contact_dse": {
+      "table": "app_DSI_DataStitching.default.dim_contact_dse",
+      "path": "s3://ds-data-databricks-production/catalog/unity/data_platform/tables/app_DSI_DataStitching/default/dim_contact_dse",
+      "format": "delta",
+      "pk": "ContactKey"
+    },
+
+    "dshe_dim_location_dse": {
+      "table":"app_DSI_DataStitching.default.dim_location_dse",
+      "path": "s3://ds-data-databricks-production/catalog/unity/data_platform/tables/app_DSI_DataStitching/default/dim_location_dse",
+      "format": "delta",
+      "pk": "Location"
+    },
+
+    "dshe_dim_order_dse_channel": {
+      "table": "app_DSI_DataStitching.default.dim_order_dse_channel",
+      "path": "s3://ds-data-databricks-production/catalog/unity/data_platform/tables/app_DSI_DataStitching/default/dim_order_dse_channel",
+      "format": "delta",
+      "pk": "OrderChannelCd"
+    },
+
+    "dshe_dim_order_dse_lob": {
+      "table": "app_DSI_DataStitching.default.dim_order_dse_lob",
+      "path": "s3://ds-data-databricks-production/catalog/unity/data_platform/tables/app_DSI_DataStitching/default/dim_order_dse_lob",
+      "format": "delta",
+      "pk": "LineOfBusinessCurrentKey"
+    },
+
+    "dshe_fact_login_tels": {
+      "table": "app_DSI_DataStitching.default.fact_login_tels",
+      "path": "s3://ds-data-databricks-production/catalog/unity/data_platform/tables/app_DSI_DataStitching/default/fact_login_tels",
+      "format": "delta",
+      "pk": "Location;ContactKey;Date"
+    },
+
+    "dshe_fact_order_dse": {
+      "table": "app_DSI_DataStitching.default.fact_order_dse",
+      "path": "s3://ds-data-databricks-production/catalog/unity/data_platform/tables/app_DSI_DataStitching/default/fact_order_dse",
+      "format": "delta",
+      "pk": "LineId"
+    },
+
+    "dshe_dim_product_dse": {
+      "table": "app_DSI_DataStitching.default.dim_product_dse",
+      "path": "s3://ds-data-databricks-production/catalog/unity/data_platform/tables/app_DSI_DataStitching/default/dim_product_dse",
+      "format": "delta",
+      "pk": "ProductCurrentKey"
+    }
+  }
+}
